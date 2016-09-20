@@ -1,0 +1,32 @@
+{
+  "name": "votelist",
+  "version": "1.0.0",
+  "description": "Permet fer llistes o votar. Nomes es per apendre",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frauca/votelist.git"
+  },
+  "keywords": [
+    "nodejs",
+    "learn",
+    "apendre",
+    "react",
+    "react-redux",
+    "mongodb"
+  ],
+  "author": "Roger Frauca",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/frauca/votelist/issues"
+  },
+  "homepage": "https://github.com/frauca/votelist#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.10"
+  }
+}
