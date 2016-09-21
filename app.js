@@ -6,9 +6,21 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var lists = require('./routes/lists');
+
+var monk = require('monk');
 
 var app = express();
+
+//conect to mongodb
+var db = monk(process.env.MONGODB_URI||'localhost/mydb');
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +35,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/lists', lists);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
