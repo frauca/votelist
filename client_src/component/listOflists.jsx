@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react'
 import {render} from 'react-dom';
+import {retrieveListOflists} from '../actions'
 
 
-class ListOfLists extends React.Component {
+class ListOfLists extends Component {
+
+ componentDidMount() {
+    console.log("Call once to fecth initial list");
+    retrieveListOflists();
+  }
   render () {
     return  <ul>
-    <li> Hello React!</li>
+    {lists.map(lists =>
+        <li> Hello React!</li>
+    )}
+
     </ul>;
   }
+}
+
+ListOfLists.propTypes = {
+  lists: PropTypes.array.isRequired
 }
 
 export default ListOfLists;
