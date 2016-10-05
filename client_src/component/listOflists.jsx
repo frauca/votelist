@@ -6,13 +6,14 @@ import {retrieveListOflists} from '../actions'
 class ListOfLists extends Component {
 
  componentDidMount() {
-    console.log("Call once to fecth initial list");
-    retrieveListOflists();
+    const { dispatch, selectedReddit } = this.props
+    retrieveListOflists(dispatch);
   }
   render () {
+    var lists=this.props.lists;
     return  <ul>
-    {lists.map(lists =>
-        <li> Hello React!</li>
+    {lists.map(list =>
+        <li key={list._id}> {list.description}</li>
     )}
 
     </ul>;

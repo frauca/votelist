@@ -11,15 +11,15 @@ var store = createStore(reducer);
 class App extends React.Component {
   render () {
     return <div>
-      <p> Hello React!</p>
+      <p> Hello React--!</p>
       <AllLists/>
     </div>;
   }
 }
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('app')
-)
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('app')
+  )
