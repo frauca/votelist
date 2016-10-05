@@ -1,10 +1,11 @@
-import {SET_LIST_OF_LISTS} from '../actions'
+import {SET_LIST_OF_LISTS,ADD_LIST} from '../actions'
 
 const reducer = (state = [], action) => {
   switch (action.type) {
     case SET_LIST_OF_LISTS:
-      console.log('return the list');
       return action.list;
+    case ADD_LIST:
+      return [...state,action.list];
     default:
       return state
   }
