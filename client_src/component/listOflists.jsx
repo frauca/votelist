@@ -1,14 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import {render} from 'react-dom';
-import {retrieveListOflists} from '../actions'
+
 
 
 class ListOfLists extends Component {
 
- componentDidMount() {
-    const { dispatch, selectedReddit } = this.props
-    retrieveListOflists(dispatch);
-  }
   render () {
     var lists=this.props.lists;
     return  <ul>

@@ -16,6 +16,19 @@ class ListsService{
     .then(response=>{succes(response.json())})
     .catch(error=>{error(error)})
   }
+  /**
+  * get the list on success call success callback with the json returned value
+  * on error call error callbacl
+  */
+  getList(success,error){
+    return fetch('/lists')
+      .then(response => {
+        response.json().then(json=>{
+          success(json);
+        });
+      })
+      .catch(error=>{error(error)})
+  }
 }
 
 export default new ListsService();
