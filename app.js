@@ -50,7 +50,7 @@ if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     console.error(err.stack);
     res.status(err.status || 500);
-    res.sendFile('error.html', { root: path.join(__dirname, 'public/pages') });
+    res.sendFile('error.html', { root: path.join(__dirname, 'public') });
   });
 }
 
