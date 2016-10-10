@@ -2,14 +2,19 @@ import React from 'react';
 import {render} from 'react-dom';
 import AllLists from './containers/allLists.jsx'
 import AddList from './containers/AddList.js'
-import { createStore } from 'redux'
+import { applyMiddleware,createStore } from 'redux'
 import reducer from './reducers'
 import { Provider } from 'react-redux'
 import ListsService from './api/ListsService.js'
 import {setListOfLists} from './actions'
+import { Router, Route, hashHistory } from 'react-router'
+import createLogger from 'redux-logger';
+
+const logger = createLogger();
 
 
-var store = createStore(reducer);
+var store = createStore(reducer,
+                          applyMiddleware(logger));
 
 class App extends React.Component {
   render () {
@@ -23,7 +28,9 @@ class App extends React.Component {
 
   render(
     <Provider store={store}>
-      <App />
+    <Router history={hashHistory}>
+      <Route path="/" component={App}/>
+    </Router>
     </Provider>,
     document.getElementById('app')
   )
