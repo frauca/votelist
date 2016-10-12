@@ -3,8 +3,8 @@ import AddListBlock from '../component/AddListBlock.js'
 import {addList} from '../actions'
 import ListsService from '../api/ListsService.js'
 
-const addListOnServer=(list)=>{
-  ListsService.addList(list,
+const addListOnServer=(name,desc)=>{
+  ListsService.addList(name,desc,
     json=>{//-success callback
         addList(list)
     },
