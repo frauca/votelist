@@ -1,6 +1,7 @@
-import {SET_LIST_OF_LISTS,ADD_LIST} from '../actions'
+import {SET_LIST_OF_LISTS,ADD_LIST,SELECT_LIST} from '../actions'
+import { combineReducers } from 'redux'
 
-const reducer = (state = [], action) => {
+const listOfLists = (state = [], action) => {
   switch (action.type) {
     case SET_LIST_OF_LISTS:
       return action.list;
@@ -11,4 +12,13 @@ const reducer = (state = [], action) => {
   }
 }
 
-export default reducer;
+const selectedList =(state = -1, action) => {
+  switch (action.type) {
+    case SELECT_LIST:
+      return action.selected;
+    default:
+      return state
+  }
+}
+
+export default combineReducers({listOfLists,selectedList});
