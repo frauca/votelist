@@ -4,17 +4,19 @@ class ListsService{
   * on succes, success will be call with the json body passed as arg to the succes function
   * on error the error will be call with the error
   */
-  addList(listName,listDescription,succes,error){
-    console.log('adding'+listName+" "+listDescription);
+  addList(listName,listDescription,success,error){
     let body={
       method: 'POST',
       body: `{"name":"${listName}","description":"${listDescription}"}`,
       headers:{"Content-Type": "application/json"}
     };
-    console.log(body)
     let req= new Request('/lists',body);
     fetch(req)
-    .then(response=>{succes(response.json())})
+    .then(response=>{
+      response.json().then(json=>{
+        success(json);
+      })
+    })
     .catch(error=>{error(error)})
   }
   /**

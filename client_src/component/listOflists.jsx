@@ -7,7 +7,9 @@ import AddList from '../containers/AddList.js'
 class ListOfLists extends Component {
 
   render () {
+
     var lists=this.props.lists;
+    console.log(lists);
     return   <div className="x_panel">
               <div className="x_title">
                 <h2>All the aviable lists</h2>

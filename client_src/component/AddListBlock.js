@@ -18,6 +18,7 @@ class AddListBlock extends React.Component {
           <button type="button" className="btn btn-default btn-sm"
               onClick={()=>{
                   this.props.addList(this.listName.value,this.listDescription.value);
+                  this.listName.value=this.listDescription.value="";
                 }}>
             <span className="glyphicon glyphicon-plus"></span> Add Todo
           </button>

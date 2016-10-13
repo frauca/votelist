@@ -10,11 +10,3 @@ export const addList = list => ({
   type: ADD_LIST,
   list:list
 })
-
-export const retrieveListOflists = dispatch  => {
-  return fetch('/lists')
-    .then(response => (response.json()))
-    .then(json=>{
-      dispatch(setListOfLists(json));
-    });
-}
