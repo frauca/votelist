@@ -15,7 +15,7 @@ const listOfLists = (state = [], action) => {
 const selectedList =(state = -1, action) => {
   switch (action.type) {
     case SELECT_LIST:
-      return action.selected;
+      return action.index;
     default:
       return state
   }

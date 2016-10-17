@@ -11,3 +11,8 @@ export const addList = list => ({
   type: ADD_LIST,
   list:list
 })
+
+export const selectList = index =>({
+  type: SELECT_LIST,
+  index
+})
