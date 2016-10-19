@@ -1,3 +1,5 @@
+import ListsService from '../api/ListsService.js'
+
 export const SET_LIST_OF_LISTS = 'SET_LIST_OF_LISTS'
 export const ADD_LIST = 'ADD_LIST'
 export const SELECT_LIST = 'SELECT_LIST'
@@ -17,3 +19,17 @@ export const selectList = index =>({
   type: SELECT_LIST,
   index
 })
+
+
+export const addElement = (element,selected)=>({
+  type:ADD_ELEMENT,
+  selected,
+  element
+})
+
+
+export const postElement= element =>(dispatch, getState)=>{
+  let selected=getState().selectedList;
+  dispatch(addElement(element,selected))
+  ListsService.saveList(getState().listOfLists[selected])
+}

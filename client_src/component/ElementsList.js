@@ -14,7 +14,7 @@ class ElementsList extends Component {
               <div className="x_content">
                 <ul className="messages msg_list">
                 {this.props.lists.map((list, index) =>
-                  <li key={list._id}>
+                  <li key={index}>
                     <div className="message_wrapper">
                       <h4 className="heading">{list.name}</h4>
                       <blockquote className="message">{list.description}</blockquote>

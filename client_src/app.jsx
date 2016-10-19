@@ -8,12 +8,13 @@ import ListsService from './api/ListsService.js'
 import {setListOfLists} from './actions'
 import { Router, Route, hashHistory } from 'react-router'
 import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 const logger = createLogger();
 
 
 var store = createStore(reducer,
-                          applyMiddleware(logger));
+                          applyMiddleware(thunk,logger));
 
 class App extends React.Component {
   render () {

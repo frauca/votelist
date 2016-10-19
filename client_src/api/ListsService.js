@@ -28,10 +28,11 @@ class ListsService{
   */
   saveList(list){
     let body={
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify(list),
       headers:{"Content-Type": "application/json"}
     };
+    console.log(body)
     let req= new Request('/lists',body);
     fetch(req)
     .then(response=>{
@@ -55,10 +56,12 @@ class ListsService{
       .catch(error=>{error(error)})
   }
 
-  createChild=(name,description)=>({
-    name,
-    description
-  })
+  createChild(name,description){
+    return{
+      name,
+      description
+    }
+  }
 }
 
 export default new ListsService();

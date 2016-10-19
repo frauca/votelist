@@ -19,7 +19,7 @@ const listOfLists = (state = [], action) => {
     case ADD_ELEMENT:
       return state.map((list,index)=>{
           if(index===action.selected){
-            return Object.assign({}, ...list, {
+            return Object.assign({}, list, {
                 childs:listOfElements(list.childs,action)
               })
           }else{
