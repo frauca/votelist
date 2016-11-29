@@ -1,7 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import AllLists from './containers/allLists.jsx'
-import AddList from './containers/AddList.js'
+import Page from './component/MainPage.js'
 import { applyMiddleware,createStore } from 'redux'
 import reducer from './reducers'
 import { Provider } from 'react-redux'
@@ -9,27 +8,18 @@ import ListsService from './api/ListsService.js'
 import {setListOfLists} from './actions'
 import { Router, Route, hashHistory } from 'react-router'
 import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 const logger = createLogger();
 
 
 var store = createStore(reducer,
-                          applyMiddleware(logger));
-
-class App extends React.Component {
-  render () {
-    return <div>
-      <p> Hello React--!</p>
-      <AddList/>
-      <AllLists/>
-    </div>;
-  }
-}
+                          applyMiddleware(thunk,logger));
 
   render(
     <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={App}/>
+      <Route path="/" component={Page}/>
     </Router>
     </Provider>,
     document.getElementById('app')
