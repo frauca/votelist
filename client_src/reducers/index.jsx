@@ -1,5 +1,14 @@
-import {SET_LIST_OF_LISTS,ADD_LIST,SELECT_LIST,ADD_ELEMENT} from '../actions'
+import {SET_LIST_OF_LISTS,ADD_LIST,SELECT_LIST,ADD_ELEMENT,SET_USER} from '../actions'
 import { combineReducers } from 'redux'
+
+const user = (state={isLoged:false},action)=>{
+  switch (action.type) {
+    case SET_USER:
+      return action.user
+    default:
+      return state
+  }
+}
 
 const listOfElements = (state=[],action)=>{
   switch (action.type) {
@@ -40,4 +49,4 @@ const selectedList =(state = -1, action) => {
   }
 }
 
-export default combineReducers({listOfLists,selectedList});
+export default combineReducers({listOfLists,selectedList,user});

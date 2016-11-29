@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import AllLists from './containers/allLists.jsx'
+import Page from './component/MainPage.js'
 import { applyMiddleware,createStore } from 'redux'
 import reducer from './reducers'
 import { Provider } from 'react-redux'
@@ -16,18 +16,10 @@ const logger = createLogger();
 var store = createStore(reducer,
                           applyMiddleware(thunk,logger));
 
-class App extends React.Component {
-  render () {
-    return <div>
-      <AllLists/>
-    </div>;
-  }
-}
-
   render(
     <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={App}/>
+      <Route path="/" component={Page}/>
     </Router>
     </Provider>,
     document.getElementById('app')
